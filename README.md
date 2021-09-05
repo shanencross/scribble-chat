@@ -25,7 +25,7 @@ A real-time chat web app where you draw and send digitally drawn pictures as mes
 ## Capstone proposol
 
 Full proposal for capstone project is here: 
-[Capstone Proposal](projectProposal)
+[Capstone Proposal](projectProposal.md)
 
 ## Technologies Used
 * HTML
