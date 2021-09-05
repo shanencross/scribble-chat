@@ -24,6 +24,10 @@ A chat application where you draw your messages! Built in React.
 * Enter ```npm install``` on the command line to install the necessary modules
 * Enter ```npm start``` on the command line to build the project and run a local server. The website will automatically open in your web browser. By default, the URL should be _http://localhost:3000/_
 
+### Research & Planning Log
+#### Saturday, 09/04
+* 10pm: Write basic README and install create-react-app template.
+
 ## License
 * [MIT](LICENSE)
 * Copyright 2021 Shanen Cross
