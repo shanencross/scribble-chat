@@ -22,6 +22,11 @@ A real-time chat web app where you draw and send digitally drawn pictures as mes
 * More chat features, such as DMs and multiple channels
 * Registration/login functionality
 
+## Capstone proposol
+
+Full proposal for capstone project is here: 
+[Capstone Proposal](projectProposal)
+
 ## Technologies Used
 * HTML
 * CSS
