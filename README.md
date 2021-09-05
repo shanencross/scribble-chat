@@ -33,6 +33,7 @@ A chat application where you draw your messages! Built in React.
 ### Sunday, 09/05
 * 7am: Read about render props and higher-order components, in preparation for reading about hooks
 * 8am: Read about React hooks
+* 9am: Read about Canvas vs SVG for React drawign apps
 
 ## To-do list
 * Research text chat applications in React -- not worrying about the drawing functionality, how would you make a basic chat app?
@@ -40,11 +41,15 @@ A chat application where you draw your messages! Built in React.
 * Research Firebase and NoSQL versus other backend alternatives -- see if it is suitable for a chat app, and also for real-time shared drawing (stretch goal feature)
 * Research Socket.IO for real-time and Express for backend?
 * Research React hooks -- What are they, do I need them? Or Redux?
+* Determine of Canvas or SVG is more suitable for a drawing app
 
 ## Notes
 * There's a a "React Chat SDK" from "Stream": https://getstream.io/chat/sdk/react/
   * Tutorial here: https://getstream.io/chat/react-chat/tutorial/
-* 
+* Building Drawing App with Canvas: https://www.youtube.com/watch?v=FLESHMJ-bI0
+* Intro to React Hooks: https://css-tricks.com/intro-to-react-hooks/
+* Introducing hooks: https://reactjs.org/docs/hooks-intro.html
+* How to Build Free-Hand Drawing Using React (with SVG): https://pspdfkit.com/blog/2017/how-to-build-free-hand-drawing-using-react/
 
 ## License
 * [MIT](LICENSE)
