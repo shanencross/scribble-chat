@@ -6,7 +6,7 @@ Develop a real-time chat web app where you draw and send digital pictures as mes
 ## Minimum features that meet goal for MVP
 * Users must enter a username in order to post
 * Users can draw on a digital canvas with a standard brush tool, using a mouse
-* Users can send their drawing to a live chat for other logged-in users to see
+* Users can send their drawing to a live chat for other users to see
 * Chat updates for all users in real-time
 * Each chat message is labeled with its author’s username
 * Chat messages are stored in the server and remain upon page refresh for all users

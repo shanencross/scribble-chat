@@ -27,11 +27,13 @@ A chat application where you draw your messages! Built in React.
 
 ## Research & Planning Log
 ### Saturday, 09/04
-* 10pm: Write basic README and install create-react-app template.
+* 10:00pm: Write basic README and install create-react-app template.
+* 10:15pm: Add to-do-list and project proposal 
 
 ### To-do list
-* Research text chat applications in React
-* Research drawing applications in React and Canvas
+* Research text chat applications in React -- not worrying about the drawing functionality, how would you make a basic chat app?
+* Research drawing applications in React and Canvas -- not worrying about the chat app functionality, how would you make a basic drawing app?
+* Research Firebase and NoSQL versus other backend alternatives -- see if it is suitable for a chat app, and also for real-time shared drawing (stretch goal feature)
 
 ## License
 * [MIT](LICENSE)
