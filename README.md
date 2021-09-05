@@ -32,6 +32,7 @@ A chat application where you draw your messages! Built in React.
 
 ### Sunday, 09/05
 * 7am: Read about render props and higher-order components, in preparation for reading about hooks
+* 8am: Read about React hooks
 
 ## To-do list
 * Research text chat applications in React -- not worrying about the drawing functionality, how would you make a basic chat app?
