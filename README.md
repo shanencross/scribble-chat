@@ -6,6 +6,22 @@
 
 A chat application where you draw your messages! Built in React.
 
+A real-time chat web app where you draw and send digitally drawn pictures as messages. Inspired by the “PictoChat” software on the Nintendo DS handheld game console, combined with the functionality of a chat app like Discord.
+
+### MVP goals:
+* Users must enter a username in order to post
+* Users can draw on a digital canvas with a standard brush tool, using a mouse
+* Users can send their drawing to a live chat for other users to see
+* Chat updates for all users in real-time
+* Each chat message is labeled with its author’s username
+* Chat messages are stored in the server and remain upon page refresh for all users
+
+### Stretch goals:
+* Users can “scribble share”, similar to “screen sharing” or streaming in Discord, sharing a canvas that users can draw on simultaneously in real-time, in addition to the normal drawing chat
+* More drawing features, such as erasing, colors, and undo/redo buttons
+* More chat features, such as DMs and multiple channels
+* Registration/login functionality
+
 ## Technologies Used
 * HTML
 * CSS
