@@ -54,7 +54,7 @@ Full proposal for capstone project is here:
 ### Sunday, 09/05
 * 7am: Read about render props and higher-order components, in preparation for reading about hooks
 * 8am: Read about React hooks
-* 9am: Read about Canvas vs SVG for React drawign apps
+* 9am: Read about Canvas vs SVG for React drawing apps
 
 ### Sunday 09/19
 * 4pm: Read pages and watch videos about Firebase/Firestore/Redux -- trying to determine if I want/need Redux?
