@@ -56,6 +56,9 @@ Full proposal for capstone project is here:
 * 8am: Read about React hooks
 * 9am: Read about Canvas vs SVG for React drawign apps
 
+### Sunday 09/19
+* 4pm: Read pages and watch videos about Firebase/Firestore/Redux -- trying to determine if I want/need Redux?
+
 ## To-do list
 * Research text chat applications in React -- not worrying about the drawing functionality, how would you make a basic chat app?
 * Research drawing applications in React and Canvas -- not worrying about the chat app functionality, how would you make a basic drawing app?
