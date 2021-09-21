@@ -61,6 +61,7 @@ Full proposal for capstone project is here:
 
 ### Monday 09/20
 * 7-8pm: Watched and compared tutorial videos on creating regular chat apps with React/Redux/Firestore
+* 8-9pm: Read and watched videos about using Canvas with React
 
 ## To-do list
 * Research text chat applications in React -- not worrying about the drawing functionality, how would you make a basic chat app?
