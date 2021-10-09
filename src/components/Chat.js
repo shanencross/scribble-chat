@@ -5,21 +5,21 @@ import { v4 }  from 'uuid';
 
 function Chat() {
   const [chatMessages, setChatMessages] = useState([
-    {
-      id: v4(),
-      username: "John117",
-      scribbleDataURL: '',
-    },
-    {
-      id: v4(),
-      username: "ssjVegeta99",
-      scribbleDataURL: '',
-    },
-    {
-      id: v4(),
-      username: "MetroidGamer94",
-      scribbleDataURL: '',
-    }
+    // {
+    //   id: v4(),
+    //   username: "John117",
+    //   scribbleDataURL: '',
+    // },
+    // {
+    //   id: v4(),
+    //   username: "ssjVegeta99",
+    //   scribbleDataURL: '',
+    // },
+    // {
+    //   id: v4(),
+    //   username: "MetroidGamer94",
+    //   scribbleDataURL: '',
+    // }
   ]);
 
   const handleInputSubmit = (username, dataURL) => {

@@ -13,7 +13,7 @@ function ChatMessageList({chatMessages=[]}) {
 }
 
 ChatMessageList.propTypes = {
-  chatMessages: PropTypes.func
+  chatMessages: PropTypes.array
 };
 
 export default ChatMessageList;

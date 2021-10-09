@@ -8,14 +8,16 @@ const canvasStyle = {
 const containerStyle = {
 }
 
-function ScribbleCanvas({ width=400, height=400, updateDataURL}) {
+function ScribbleCanvas({ width=400, height=400, onCanvasUpdate}) {
   const canvasRef = useRef(); 
   const ctxRef = useRef();
   const posRef = useRef([]);
 
   useEffect(() => {
     console.log("Hello world");
-    ctxRef.current = canvasRef.current.getContext('2d');
+    const canvas = canvasRef.current;
+    ctxRef.current = canvas.getContext('2d');
+    onCanvasUpdate(canvas);
   }, []);
 
   function getPos(e) {
@@ -59,8 +61,7 @@ function ScribbleCanvas({ width=400, height=400, updateDataURL}) {
   const handleDrawEnd = (e) => {
     console.log("Drawing end");
     const canvas = canvasRef.current;
-    const dataURL = canvas.toDataURL();
-    updateDataURL(dataURL);
+    onCanvasUpdate(canvas);
   }
 
   return (
