@@ -1,9 +1,11 @@
 import './App.css';
-import ScribbleCanvas from './components/ScribbleCanvas';
+import Header from './components/Header';
+import Chat from './components/Chat';
 function App() {
   return (
     <div className="App">
-      <ScribbleCanvas/>
+      <Header/>
+      <Chat/>
     </div>
   );
 }

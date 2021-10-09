@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const canvasStyle = {
   outline: '1px solid blue',
@@ -81,6 +82,11 @@ function ScribbleCanvas({ width=400, height=400}) {
       </div>
     </React.Fragment>
   );
+}
+
+ScribbleCanvas.propTypes = {
+  width: PropTypes.number,
+  height: PropTypes.number
 }
 
 export default ScribbleCanvas;
