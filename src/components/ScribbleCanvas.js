@@ -2,28 +2,21 @@ import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 const canvasStyle = {
-  outline: '1px solid blue',
+  outline: '2px solid blue',
 }
 
 const containerStyle = {
 }
 
-function ScribbleCanvas({ width=400, height=400}) {
-  const canvasRef = useRef();
+function ScribbleCanvas({ width=400, height=400, updateDataURL}) {
+  const canvasRef = useRef(); 
   const ctxRef = useRef();
   const posRef = useRef([]);
 
-  useEffect(() =>{
+  useEffect(() => {
     console.log("Hello world");
     ctxRef.current = canvasRef.current.getContext('2d');
   }, []);
-
-  const onButtonClick = () => {
-    console.log('click');
-    const ctx = ctxRef.current;
-    ctx.fillStyle = 'green';
-    ctx.fillRect(10, 10, 150, 100);
-  }
 
   function getPos(e) {
     const canvas = canvasRef.current;
@@ -65,6 +58,9 @@ function ScribbleCanvas({ width=400, height=400}) {
 
   const handleDrawEnd = (e) => {
     console.log("Drawing end");
+    const canvas = canvasRef.current;
+    const dataURL = canvas.toDataURL();
+    updateDataURL(dataURL);
   }
 
   return (
@@ -85,7 +81,8 @@ function ScribbleCanvas({ width=400, height=400}) {
 
 ScribbleCanvas.propTypes = {
   width: PropTypes.number,
-  height: PropTypes.number
+  height: PropTypes.number,
+  updateDataURL: PropTypes.func
 }
 
 export default ScribbleCanvas;
