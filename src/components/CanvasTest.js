@@ -1,47 +1,88 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
+
+const canvasStyle = {
+  outline: '1px solid blue',
+}
+
+const containerStyle = {
+}
 
 function CanvasTest() {
   const canvasRef = useRef();
-  const [ctx, setCtx] = useState();
+  const ctxRef = useRef();
+  const posRef = useRef([]);
 
   useEffect(() =>{
     console.log("Hello world");
-    setCtx(canvasRef.current.getContext('2d'));
+    ctxRef.current = canvasRef.current.getContext('2d');
   }, []);
 
   const onButtonClick = () => {
     console.log('click');
+    const ctx = ctxRef.current;
     ctx.fillStyle = 'green';
     ctx.fillRect(10, 10, 150, 100);
   }
 
-  const handleDrawStart = (e) => {
-    console.log(`${e.clientX}, ${e.clientY}`);
+  function getPos(e) {
     const canvas = canvasRef.current;
-    const x = e.clientX - canvas.offsetLeft;
-    const y = e.clientY - canvas.offsetTop;
-    console.log(canvasRef);
-    console.log(`canvas coords: ${x}, ${y}`)
-    ctx.fillRect(x, y, 1, 1);
+    const rect = canvas.getBoundingClientRect()
+    const x = Math.round(e.clientX - rect.left);
+    const y = Math.round(e.clientY - rect.top);
+
+    // const x = e.nativeEvent.offsetX;
+    // const y = e.nativeEvent.offsetY;
+    console.log(`${x}, ${y}`);
+    return [x, y];
+  }
+
+  const draw = (oldPos, newPos) => {
+    const ctx = ctxRef.current;
+
+    ctx.beginPath();
+    ctx.lineWidth = 3;
+    ctx.lineCap = 'round';
+    ctx.moveTo(...oldPos);
+    ctx.lineTo(...newPos);
+    ctx.stroke();
+  }
+
+  const handleDrawStart = (e) => {
+    console.log("Draw start");
+    if (e.buttons !== 1) {
+      return;
+    }
+    posRef.current = getPos(e);
+    draw(posRef.current, posRef.current);
   }
 
   const handleDrawMove = (e) => {
     console.log("Drawing moving");
+    if (e.buttons !== 1) {
+      return;
+    }
+    const newPos = getPos(e); 
+    draw(posRef.current, newPos);
+    posRef.current = newPos;
   }
 
   const handleDrawEnd = (e) => {
     console.log("Drawing end");
+    // ctx.stroke();
   }
 
   return (
     <React.Fragment>
-      <h1>Hello</h1>
-      <canvas 
-        ref={canvasRef}
-        onMouseDown={handleDrawStart}
-        onMouseMove={handleDrawMove}
-        onMouseUp={handleDrawEnd}>Canvas</canvas>
-      <button onClick={onButtonClick}>Paint Green</button>
+      <div id="canvasContainer" style={containerStyle}>
+        <canvas 
+          ref={canvasRef}
+          style={canvasStyle}
+          width={400}
+          height={400}
+          onMouseDown={handleDrawStart}
+          onMouseMove={handleDrawMove}
+          onMouseUp={handleDrawEnd}>Canvas</canvas>
+      </div>
     </React.Fragment>
   );
 }
