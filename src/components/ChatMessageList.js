@@ -5,9 +5,9 @@ import ChatMessage from './ChatMessage';
 function ChatMessageList({chatMessages=[]}) {
   return (
     <React.Fragment>
-      {chatMessages.map((message) => {
+      {chatMessages.map((message) => (
         <ChatMessage key={message.id} message={message}/>
-      })}
+      ))}
     </React.Fragment>
   );
 }
