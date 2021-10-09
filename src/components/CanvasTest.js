@@ -27,12 +27,8 @@ function CanvasTest() {
   function getPos(e) {
     const canvas = canvasRef.current;
     const rect = canvas.getBoundingClientRect()
-    const x = Math.round(e.clientX - rect.left);
-    const y = Math.round(e.clientY - rect.top);
-
-    // const x = e.nativeEvent.offsetX;
-    // const y = e.nativeEvent.offsetY;
-    console.log(`${x}, ${y}`);
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
     return [x, y];
   }
 
