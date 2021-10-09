@@ -65,7 +65,6 @@ function ScribbleCanvas({ width=400, height=400}) {
 
   const handleDrawEnd = (e) => {
     console.log("Drawing end");
-    // ctx.stroke();
   }
 
   return (
