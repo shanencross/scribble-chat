@@ -5,6 +5,7 @@ import ScribbleCanvas from './ScribbleCanvas';
 function ChatInputBox({width=500, height=200, onSubmit}) {
   const canvasRef = useRef();
   const usernameInputRef = useRef();
+  const sendButtonRef = useRef(); 
 
   const clearCanvas = (cvs) => {
     const ctx = cvs.getContext('2d');
@@ -22,13 +23,19 @@ function ChatInputBox({width=500, height=200, onSubmit}) {
     clearCanvas(canvas);
   }
 
+  const onInputEnterPress = (e) => {
+    if (e.key === 'Enter') {
+      sendButtonRef.current.click();
+    }
+  }
+
   return (
     <React.Fragment>
       <div>
         <h3>Draw scribble message:</h3>
         <ScribbleCanvas width={width} height={height} onCanvasUpdate={handleCanvasUpdate}/>
-        <input ref={usernameInputRef} placeholder='Enter username'/>
-        <button onClick={onSendClick}>Send scribble</button>
+        <input ref={usernameInputRef} onKeyPress={onInputEnterPress} placeholder='Enter username'/>
+        <button ref={sendButtonRef} onClick={onSendClick}>Send scribble</button>
       </div>
     </React.Fragment>
   );
