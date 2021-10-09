@@ -7,6 +7,7 @@ function ChatInputBox({width=500, height=200}) {
     <React.Fragment>
       <h3>Draw scribble message:</h3>
       <ScribbleCanvas width={width} height={height}/>
+      <button>Send scribble</button>
     </React.Fragment>
   );
 }
