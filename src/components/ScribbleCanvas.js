@@ -7,7 +7,7 @@ const canvasStyle = {
 const containerStyle = {
 }
 
-function CanvasTest() {
+function ScribbleCanvas({ width=400, height=400}) {
   const canvasRef = useRef();
   const ctxRef = useRef();
   const posRef = useRef([]);
@@ -73,8 +73,8 @@ function CanvasTest() {
         <canvas 
           ref={canvasRef}
           style={canvasStyle}
-          width={400}
-          height={400}
+          width={width}
+          height={height}
           onMouseDown={handleDrawStart}
           onMouseMove={handleDrawMove}
           onMouseUp={handleDrawEnd}>Canvas</canvas>
@@ -83,4 +83,4 @@ function CanvasTest() {
   );
 }
 
-export default CanvasTest;
+export default ScribbleCanvas;

@@ -1,10 +1,9 @@
 import './App.css';
-import CanvasTest from './components/CanvasTest';
-
+import ScribbleCanvas from './components/ScribbleCanvas';
 function App() {
   return (
     <div className="App">
-      <CanvasTest/>
+      <ScribbleCanvas/>
     </div>
   );
 }
