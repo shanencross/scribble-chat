@@ -23,7 +23,7 @@ function Chat() {
       scribbleDataURL: dataURL,
       timestamp: serverTimestamp()
     }
-    const docRef = await addDoc(messagesCollectionRef, newMessage);
+    await addDoc(messagesCollectionRef, newMessage);
     scrollToBottom();
   }
 
