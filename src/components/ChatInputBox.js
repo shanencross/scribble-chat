@@ -1,16 +1,12 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import ScribbleCanvas from './ScribbleCanvas';
+import { clearCanvas } from './../helpers/canvasHelpers';
 
 function ChatInputBox({width=500, height=200, onSubmit}) {
   const canvasRef = useRef();
   const usernameInputRef = useRef();
   const sendButtonRef = useRef(); 
-
-  const clearCanvas = (canvas) => {
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-  }
 
   const handleCanvasUpdate = (canvas) => {
     canvasRef.current = canvas;
@@ -36,6 +32,7 @@ function ChatInputBox({width=500, height=200, onSubmit}) {
         <ScribbleCanvas width={width} height={height} onCanvasUpdate={handleCanvasUpdate}/>
         <input ref={usernameInputRef} onKeyPress={onInputEnterPress} placeholder='Enter username'/>
         <button ref={sendButtonRef} onClick={onSendClick}>Send scribble</button>
+        <button onClick={() => clearCanvas(canvasRef.current)}>Erase scribble</button>
       </div>
     </React.Fragment>
   );
