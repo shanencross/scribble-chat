@@ -39,9 +39,14 @@ function Chat() {
         console.log("snapshot");
         querySnapshot.docChanges().forEach((change) => {
           console.log(change.type);
+          console.log(change.doc.data());
         })
-        const messages = querySnapshot.docs.map((doc) => convertSnapToMessage(doc));
-        setChatMessages(messages);
+
+        if (!querySnapshot.metadata.hasPendingWrites) {
+          console.log("writing to state");
+          const messages = querySnapshot.docs.map((doc) => convertSnapToMessage(doc));
+          setChatMessages(messages);
+        }
       });
       return unsubscribe;
     }
