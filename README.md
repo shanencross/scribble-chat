@@ -35,6 +35,10 @@ Full proposal for capstone project is here:
 * Firebase/Firestore
 * HTML5 Canvas
 
+# Component Diagram
+
+![Component Diagram](diagrams/scribbleChatComponentDiagram.png)
+
 ## Setup / Installation requirements
 
 ### Installing Prerequisites
