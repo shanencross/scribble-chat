@@ -7,9 +7,9 @@ function ChatInputBox({width=500, height=200, onSubmit}) {
   const usernameInputRef = useRef();
   const sendButtonRef = useRef(); 
 
-  const clearCanvas = (cvs) => {
-    const ctx = cvs.getContext('2d');
-    ctx.clearRect(0, 0, cvs.width, cvs.height);
+  const clearCanvas = (canvas) => {
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
 
   const handleCanvasUpdate = (canvas) => {
