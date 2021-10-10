@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ChatInputBox from './ChatInputBox';
 import ChatMessageList from './ChatMessageList';
 import { v4 }  from 'uuid';
@@ -21,6 +21,7 @@ function Chat() {
     //   scribbleDataURL: '',
     // }
   ]);
+  const chatBottomRef = useRef();
 
   const handleInputSubmit = (username, dataURL) => {
     const newMessage = {
@@ -30,10 +31,20 @@ function Chat() {
     }
     setChatMessages([...chatMessages, newMessage]);
   }
+
+  const scrollToBottom = () => {
+    chatBottomRef.current.scrollIntoView({ behavior: "smooth" });
+  }
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [chatMessages])
+
   return (
     <React.Fragment>
       <ChatMessageList chatMessages={chatMessages}/>
       <ChatInputBox onSubmit={handleInputSubmit}/>
+      <div ref={chatBottomRef} style={{float: "left", clear: "both" }}/>
     </React.Fragment>
   );
 }
