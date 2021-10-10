@@ -5,7 +5,7 @@ import { db } from './../firebase';
 import { addDoc, collection, doc, getDoc, getDocs, getFirestore, serverTimestamp } from "firebase/firestore"
 
 function Chat() {
-  const messagesRef = collection(db, 'messages');
+  const [messagesCollectionRef] = useState(collection(db, 'messages'));
   const [chatMessages, setChatMessages] = useState([]);
   const chatBottomRef = useRef();
 
@@ -23,7 +23,7 @@ function Chat() {
       scribbleDataURL: dataURL,
       timestamp: serverTimestamp()
     }
-    const docRef = await addDoc(messagesRef, newMessage);
+    const docRef = await addDoc(messagesCollectionRef, newMessage);
     await addMessageDocToState(docRef);
     scrollToBottom();
   }
@@ -38,18 +38,19 @@ function Chat() {
       console.log("docSnap not found, chatMessages state not updated");
     }
   }
-
-  const getChatMessages = async () => {
-    const querySnapshot = await getDocs(messagesRef);
-    const messages = querySnapshot.docs.map((doc) => convertSnapToMessage(doc));
-    return messages;
-  }
   
   useEffect(() => {
+    console.log("effect");
+    const getChatMessages = async () => {
+      const querySnapshot = await getDocs(messagesCollectionRef);
+      const messages = querySnapshot.docs.map((doc) => convertSnapToMessage(doc));
+      return messages;
+    }
+    
     getChatMessages().then((chatMessages) => {
       setChatMessages(chatMessages);
     })
-  }, []);
+  }, [messagesCollectionRef]);
 
   useEffect(() => {
     console.log(chatMessages);
