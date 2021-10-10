@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import ChatInputBox from './ChatInputBox';
 import ChatMessageList from './ChatMessageList';
 import { db } from './../firebase';
-import { addDoc, collection, getDoc, getDocs, query, orderBy, serverTimestamp, onSnapshot, snapshotEqual } from "firebase/firestore"
+import { addDoc, collection, query, orderBy, serverTimestamp, onSnapshot } from "firebase/firestore"
 
 function Chat() {
   const [messagesCollectionRef] = useState(collection(db, 'messages'));
@@ -34,16 +34,8 @@ function Chat() {
   useEffect(() => {
     const listenToMessagesCollection = () => {
       const q = query(messagesCollectionRef, orderBy("timestamp"));
-      console.log("subscribing");
       const unsubscribe = onSnapshot(q, (querySnapshot) => {
-        console.log("snapshot");
-        querySnapshot.docChanges().forEach((change) => {
-          console.log(change.type);
-          console.log(change.doc.data());
-        })
-
         if (!querySnapshot.metadata.hasPendingWrites) {
-          console.log("writing to state");
           const messages = querySnapshot.docs.map((doc) => convertSnapToMessage(doc));
           setChatMessages(messages);
         }
