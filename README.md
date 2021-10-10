@@ -32,6 +32,7 @@ Full proposal for capstone project is here:
 * CSS
 * JavaScript
 * React
+* Firebase/Firestore
 * HTML5 Canvas
 
 ## Setup / Installation requirements
