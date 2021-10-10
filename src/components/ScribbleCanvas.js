@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 const canvasStyle = {
-  outline: '2px solid blue',
+  outline: '2px solid rgb(11, 218, 255)',
 }
 
 const containerStyle = {

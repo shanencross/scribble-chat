@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 const canvasStyle = {
-  outline: '2px solid green',
+  outline: '2px solid rgb(4, 209, 113)',
 }
 
 function ChatMessage({message={}}) {
