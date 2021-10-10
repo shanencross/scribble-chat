@@ -46,7 +46,6 @@ function ChatMessage({message={}}) {
       <div id='messageContainer'/>
       <p style={usernameStyle}>{message.username}</p>
       <p style={dateTimeStyle}>{getDateStringFromTimestamp(message.timestamp)}</p>
-      
       <canvas style={canvasStyle} ref={canvasRef} width={500} height={200}/>
     </React.Fragment>
   );
