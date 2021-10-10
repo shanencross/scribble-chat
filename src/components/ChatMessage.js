@@ -19,7 +19,7 @@ function ChatMessage({message={}}) {
     };
     img.src = message.scribbleDataURL;
 
-  }, []);
+  }, [message]);
 
   return (
     <React.Fragment>

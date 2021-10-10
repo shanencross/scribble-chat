@@ -18,7 +18,7 @@ function ScribbleCanvas({ width=400, height=400, onCanvasUpdate}) {
     const canvas = canvasRef.current;
     ctxRef.current = canvas.getContext('2d');
     onCanvasUpdate(canvas);
-  }, []);
+  }, [onCanvasUpdate]);
 
   function getPos(e) {
     const canvas = canvasRef.current;
