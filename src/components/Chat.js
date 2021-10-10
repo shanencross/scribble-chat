@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import ChatInputBox from './ChatInputBox';
 import ChatMessageList from './ChatMessageList';
 import { db } from './../firebase';
-import { addDoc, collection, doc, getDoc, getDocs, getFirestore, serverTimestamp } from "firebase/firestore"
+import { addDoc, collection, getDoc, getDocs, query, orderBy, serverTimestamp } from "firebase/firestore"
 
 function Chat() {
   const [messagesCollectionRef] = useState(collection(db, 'messages'));
@@ -40,9 +40,9 @@ function Chat() {
   }
   
   useEffect(() => {
-    console.log("effect");
     const getChatMessages = async () => {
-      const querySnapshot = await getDocs(messagesCollectionRef);
+      const q = query(messagesCollectionRef, orderBy("timestamp"));
+      const querySnapshot = await getDocs(q);
       const messages = querySnapshot.docs.map((doc) => convertSnapToMessage(doc));
       return messages;
     }
