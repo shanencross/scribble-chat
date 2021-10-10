@@ -43,9 +43,10 @@ function Chat() {
         const messages = querySnapshot.docs.map((doc) => convertSnapToMessage(doc));
         setChatMessages(messages);
       });
+      return unsubscribe;
     }
 
-    listenToMessagesCollection();
+    const unsubscribe = listenToMessagesCollection();
     return () => unsubscribe();
   }, [messagesCollectionRef]);
 
