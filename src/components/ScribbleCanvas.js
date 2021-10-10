@@ -14,7 +14,6 @@ function ScribbleCanvas({ width=400, height=400, onCanvasUpdate}) {
   const posRef = useRef([]);
 
   useEffect(() => {
-    console.log("Hello world");
     const canvas = canvasRef.current;
     ctxRef.current = canvas.getContext('2d');
     onCanvasUpdate(canvas);
@@ -40,7 +39,6 @@ function ScribbleCanvas({ width=400, height=400, onCanvasUpdate}) {
   }
 
   const handleDrawStart = (e) => {
-    console.log("Draw start");
     if (e.buttons !== 1) {
       return;
     }
@@ -49,7 +47,6 @@ function ScribbleCanvas({ width=400, height=400, onCanvasUpdate}) {
   }
 
   const handleDrawMove = (e) => {
-    console.log("Drawing moving");
     if (e.buttons !== 1) {
       return;
     }
@@ -59,7 +56,6 @@ function ScribbleCanvas({ width=400, height=400, onCanvasUpdate}) {
   }
 
   const handleDrawEnd = (e) => {
-    console.log("Drawing end");
     const canvas = canvasRef.current;
     onCanvasUpdate(canvas);
   }
