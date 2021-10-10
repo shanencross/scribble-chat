@@ -1,42 +1,58 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ChatInputBox from './ChatInputBox';
 import ChatMessageList from './ChatMessageList';
-import { v4 }  from 'uuid';
+import { db } from './../firebase';
+import { addDoc, collection, doc, getDoc, getDocs, getFirestore, serverTimestamp } from "firebase/firestore"
 
 function Chat() {
-  const [chatMessages, setChatMessages] = useState([
-    // {
-    //   id: v4(),
-    //   username: "John117",
-    //   scribbleDataURL: '',
-    // },
-    // {
-    //   id: v4(),
-    //   username: "ssjVegeta99",
-    //   scribbleDataURL: '',
-    // },
-    // {
-    //   id: v4(),
-    //   username: "MetroidGamer94",
-    //   scribbleDataURL: '',
-    // }
-  ]);
+  const messagesRef = collection(db, 'messages');
+  const [chatMessages, setChatMessages] = useState([]);
   const chatBottomRef = useRef();
 
-  const handleInputSubmit = (username, dataURL) => {
-    const newMessage = {
-      id: v4(),
-      username,
-      scribbleDataURL: dataURL
-    }
-    setChatMessages([...chatMessages, newMessage]);
-  }
+  const convertSnapToMessage = (messageSnap) => (
+    {...messageSnap.data(), id: messageSnap.id}
+  );
 
   const scrollToBottom = () => {
     chatBottomRef.current.scrollIntoView({ behavior: "smooth" });
   }
 
+  const handleInputSubmit = async (username, dataURL) => {
+    const newMessage = {
+      username,
+      scribbleDataURL: dataURL,
+      timestamp: serverTimestamp()
+    }
+    const docRef = await addDoc(messagesRef, newMessage);
+    await addMessageDocToState(docRef);
+    scrollToBottom();
+  }
+
+  const addMessageDocToState = async (messageDocRef) => {
+    const messageSnap = await getDoc(messageDocRef);
+    if (messageSnap.exists()) {
+      const message = convertSnapToMessage(messageSnap);
+      setChatMessages([...chatMessages, message]);
+    }
+    else {
+      console.log("docSnap not found, chatMessages state not updated");
+    }
+  }
+
+  const getChatMessages = async () => {
+    const querySnapshot = await getDocs(messagesRef);
+    const messages = querySnapshot.docs.map((doc) => convertSnapToMessage(doc));
+    return messages;
+  }
+  
   useEffect(() => {
+    getChatMessages().then((chatMessages) => {
+      setChatMessages(chatMessages);
+    })
+  }, []);
+
+  useEffect(() => {
+    console.log(chatMessages);
     scrollToBottom();
   }, [chatMessages])
 
